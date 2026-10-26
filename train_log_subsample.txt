@@ -1,0 +1,28 @@
+[02:54:27] train: S1=40,000  S2∪S3=189,213  countries={'US': np.int64(23968), 'India': np.int64(16032)}
+[02:54:36]   normalized in 7s; derived suffixes: ['academy', 'alliance', 'associates', 'center', 'central', 'church', 'clinic', 'com', 'elaelapi', 'fund', 'holdings', 'id']
+[02:54:37] blocking …
+[02:55:07]   blocked India: 16,032 S1 × 75,931 pool → 365,180 pairs (22.8/entity) in 30s
+[02:55:41]   blocked US: 23,968 S1 × 113,282 pool → 516,672 pairs (21.6/entity) in 34s
+[02:55:43] AUDIT pair recall=99.3212%  entity full-set recall=97.9725%  cands/entity mean=22.05 median=22 p95=29 zero=0
+[02:55:46] features …
+[02:56:14]     features 399,991/881,852
+[02:56:35]     features 799,982/881,852
+[02:56:39]     features 881,852/881,852
+[02:56:41] pairs=881,852  positives=137,250  hard negatives=744,602  features=65
+[02:58:12]   fold 0 done
+[02:59:43]   fold 1 done
+[03:01:14]   fold 2 done
+[03:02:45]   fold 3 done
+[03:04:16]   fold 4 done
+[03:04:16] OOF stage-1 pair AUC = 0.99992
+[03:04:18] OOF stage-1 macro-F0.5 = 0.99008  rule=(0.715, 0.79, 0.0)
+[03:09:21] OOF stage-2 pair AUC = 0.99994
+[03:11:02] OOF expected-utility decoder macro-F0.5 = 0.99069  (gamma, prior)=(1.0, 0.0)   vs rule 0.99077
+[03:11:04] OOF macro-F0.5 = 0.99077   rule: first p>=0.54, extras p>=0.825 & p>=0.0*top1   (without one-to-one resolution: 0.99068)
+[03:11:04]   singletons 2,272: F=0.9833 | 1-match: F=0.9706 | 2-3: F=0.9912 | 4+: F=0.9935
+[03:11:04]   country India: F=0.98794
+[03:11:04]   country US: F=0.99267
+[03:13:44] LOCO train≠India → test India: macro-F0.5 = 0.97759  (vs OOF on India: 0.98794)
+[03:16:09] LOCO train≠US → test US: macro-F0.5 = 0.98734  (vs OOF on US: 0.99267)
+[03:16:13] ERROR TAXONOMY  FP={'same_name_diff_addr': 180, 'same_addr_diff_name': 64, 'number_conflict': 160, 'other': 38, 'singleton_matched': 40}  FN={'rejected_by_rule_or_1to1': 728, 'blocking_miss': 938, 'below_threshold': 988}
+[03:19:00] top features: p1=4987919, claim_margin=1157086, claim_best=11074, claim_is_best=6370, sib_nums_support=4752, gap_p1=3839, addr_len_ratio=3820, top1_p1=3779, top2_p1=3577, sum_p1_sib=3092, sib_addr_max=3058, name_len_ratio=2714
